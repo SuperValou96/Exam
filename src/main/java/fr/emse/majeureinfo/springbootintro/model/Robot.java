@@ -1,16 +1,28 @@
 package fr.emse.majeureinfo.springbootintro.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 
 @Entity
 @SuppressWarnings("serial")
+@Table(name="ROBOT")
 public class Robot {
 
+    @Id
+    @GeneratedValue
     private Long id;
 
+    @Column(nullable = false)
     private Sensor sensor;
 
+    @Column(nullable = false)
     private Actuator actuator;
+
+    @SuppressWarnings("unused")
+    public Robot() {
+    }
 
     public Robot(Sensor sensor, Actuator actuator) {
         this.sensor = sensor;
@@ -49,7 +61,7 @@ public class Robot {
         else {
             getSensor().setStatus(Status.ON);
         }
-    }
+    } // Here we could also put sensor instead of getSensor()
 
 
     public void switchActuator() {
