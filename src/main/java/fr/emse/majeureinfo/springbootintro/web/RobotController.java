@@ -9,6 +9,9 @@ import javax.transaction.Transactional;
 import java.util.List;
 import java.util.stream.Collectors;
 
+@RestController
+@RequestMapping(value = "/api")
+@Transactional
 public class RobotController {
 
     private final RobotDao robotDao;
